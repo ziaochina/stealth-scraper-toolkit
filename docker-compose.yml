@@ -1,0 +1,10 @@
+services:
+  stealth-scraper:
+    build: .
+    container_name: stealth-scraper
+    restart: on-failure
+    environment:
+      - TARGET_URL=${TARGET_URL:-https://httpbin.org/headers}
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
